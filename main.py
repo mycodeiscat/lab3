@@ -2,6 +2,9 @@ from lab.app import app
 from lab.db import db
 import os
 
+from lab.db.fixtures import seed_db
+
+
 def drop_all_tables(app):
     db.engine.execute("DROP SCHEMA public CASCADE")
     db.engine.execute("CREATE SCHEMA public")
@@ -11,11 +14,12 @@ def recreate_db():
     drop_all_tables(app=app)
     db.create_all(app=app)
 
+    seed_db()
+
 
 if __name__ == "__main__":
     with app.app_context():
-        # recreate_db()
-
+        recreate_db()
         print("f")
         from lab.controllers.book_controller import BookController
         from lab.controllers.author_controller import AuthorController
