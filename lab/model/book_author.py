@@ -10,8 +10,8 @@ class BookAuthor(db.Model):
     )
 
     author_id = db.Column(
-        Integer, ForeignKey("author.id", on_delete="CASCADE"), nullable=False
+        Integer, ForeignKey("author.id", ondelete="CASCADE"), nullable=False
     )
     book_id = db.Column(
-        Integer, ForeignKey("book.id", on_delete="CASCADE"), nullable=False
+        Integer, ForeignKey("book.id", ondelete="CASCADE"), nullable=False
     )
