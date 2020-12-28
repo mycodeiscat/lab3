@@ -1,11 +1,11 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime, Float, Boolean, PickleType
-from sqlalchemy.ext.declarative import declarative_base
+import pprint
 
+from sqlalchemy import Column, Integer, String, Text, DateTime, Float, Boolean, PickleType
 from lab.db import db
+from lab.util.schemas import ReaderSchema, BookSchema
 
 
 class Book(db.Model):
-
     id = Column(
         Integer,
         primary_key=True,
@@ -31,6 +31,4 @@ class Book(db.Model):
     readers = db.relationship("Reader", back_populates="book")
 
     def __repr__(self):
-        return f'<Book name={self.name} \n' \
-               f'Description = {self.description} \n' \
-               f'>'
+        return pprint.pformat(BookSchema().dump(self), indent=4)
