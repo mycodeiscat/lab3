@@ -1,5 +1,5 @@
 from lab.model import Book
-
+from lab.model import book_author
 from lab.db import db
 
 
@@ -19,7 +19,8 @@ class BookController:
                 b = Book(name=name, description=desc, content=content)
                 db.session.add(b)
                 db.session.commit()
-
+                db.session.refresh(b)
+                return b
             except Exception as err:
                 print("Wrong data types! ", err)
                 db.session.rollback()

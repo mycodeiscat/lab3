@@ -1,0 +1,8 @@
+EXPLAIN ANALYSE SELECT * FROM book where name ilike '%war%';
+
+CREATE EXTENSION pg_trgm;
+
+CREATE INDEX book_name_idx ON book
+USING GIN (name gin_trgm_ops);
+
+DROP INDEX book_name_idx;
