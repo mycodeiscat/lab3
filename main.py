@@ -45,7 +45,13 @@ if __name__ == "__main__":
                     name = input()
                     desc = input()
                     content = input()
-                    books.createBook(name, desc, content)
+                    b = books.createBook(name, desc, content)
+                    print("Author id")
+                    aid = input()
+                    if aid:
+                        author = authors.getById(aid)
+                        if author:
+                            author.books.append(b)
                 if choice == "2":
                     bid = input()
                     name = input()
@@ -63,6 +69,34 @@ if __name__ == "__main__":
                     bid = input()
                     book = books.getById(bid)
                     print(book)
+            if choice == "2":
+                print("Auhors")
+                print("1. Create")
+                print("2. Update")
+                print("3. Delete")
+                print("4. Show all")
+                print("5. Get author by id")
+                choice = input()
+                if choice == "1":
+                    name = input()
+                    bio = input()
+                    authors.createAuthor(name, bio)
+                if choice == "2":
+                    aid = input()
+                    name = input()
+                    bio = input()
+                    authors.updateAuthor(aid, name, bio)
+                if choice == "3":
+                    rid = input()
+                    authors.deleteAuthor(rid)
+                if choice == "4":
+                    info = authors.getAll()
+                    for item in info:
+                        print(item)
+                if choice == "5":
+                    rid = input()
+                    author = authors.getById(rid)
+                    print(author)
             if choice == "3":
                 print("Readers")
                 print("1. Create")
