@@ -26,7 +26,6 @@ pyjwt==1.7.1
 python-dateutil==2.8.0; (python_version >= "2.7" and python_full_version < "3.0.0") or (python_full_version >= "3.3.0")
 python-editor==1.0.4
 six==1.15.0; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.3.0"
-smorest-crud==0.0.7; python_full_version >= "3.6.0"
 sqlalchemy-aurora-data-api==0.2.5
 stringcase==1.2.0
 text-unidecode==1.3
