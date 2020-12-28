@@ -30,3 +30,7 @@ class Book(db.Model):
 
     readers = db.relationship("Reader", back_populates="book")
 
+    def __repr__(self):
+        return f'<Book name={self.name} \n' \
+               f'Description = {self.description} \n' \
+               f'>'

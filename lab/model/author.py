@@ -21,6 +21,6 @@ class Author(db.Model):
     books = db.relationship("Book", secondary="book_author")
 
     def __repr__(self):
-        return f'<Author name= {self.name}' \
-               f'bio = {self.bio}' \
+        return f'<Author name={self.name} \n' \
+               f'bio = {self.bio} \n' \
                f'>'

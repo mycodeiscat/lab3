@@ -36,3 +36,25 @@ class BookController:
             print("Delete error! ", err)
             db.session.rollback()
             raise err
+
+    def updateBook(self, bookId, name, desc, content):
+        try:
+            book = db.session.query(Book).get(bookId)
+            book.name = name
+            book.description = desc
+            book.content = content
+            db.session.add(book)
+            db.session.commit()
+        except Exception as err:
+            print(err)
+            raise err
+        return book
+
+    def getById(self, bookId):
+        try:
+            book = db.session.query(Book).get(bookId)
+        except Exception as err:
+            print(err)
+            raise err
+        return book
+
